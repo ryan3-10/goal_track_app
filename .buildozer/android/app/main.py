@@ -153,7 +153,7 @@ class AddWindow(Screen):
         thread.start()
 
         #Reset all fields
-        self.ids.hours.text = "0"
+        self.ids.hours.text = "0.0"
         self.ids.goal_title.text = ""
         self.ids.error_label.color = (0, 0, 0, 0)
         for toggle in self.ids.toggles.children:
@@ -167,7 +167,7 @@ class AddWindow(Screen):
     def check_fields(self):
         while App.get_running_app().root.current == "add":
             if (self.one_active_toggle() and self.ids.goal_title.text.strip() != "" and
-                int(self.ids.hours.text) > 0):
+                float(self.ids.hours.text) > 0):
                 self.ids.add_goal.disabled = False
             
             else:
@@ -186,11 +186,11 @@ class AddWindow(Screen):
     def update_hours(self, number):
         label = self.ids.hours
 
-        if 0 <= (int(label.text) + number) <= 300:
-            label.text = str(int(label.text) + number)
+        if 0 <= (float(label.text) + number) <= 300:
+            label.text = str(float(label.text) + number)
         
-        elif int(label.text) + number < 0:
-            label.text = "0"
+        elif float(label.text) + number < 0:
+            label.text = "0.0"
         
         else:
             label.text = "300"
@@ -198,7 +198,7 @@ class AddWindow(Screen):
     def try_add_goal(self):
         title = self.ids.goal_title.text.strip()
         cycle_length = self.cycle_length
-        target = int(self.ids.hours.text)
+        target = float(self.ids.hours.text)
         goal = Goal(title, cycle_length, target)
 
         if user.add_goal(goal) == -1:
@@ -246,7 +246,6 @@ class SessionWindow(Screen):
                 
                 #Check if cycle has ended
                 if self.goal.check_current_cycle() == 1:
-                    print("test")
                     self.ids.cycle_range.text = ("This cycle has ended.\n"
                                                 "Please exit the session window")
                     

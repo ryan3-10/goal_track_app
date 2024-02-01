@@ -83,16 +83,16 @@ WindowManager:
         pos_hint: {"center_y": 0.5}
 
         Label:
-            text: "Are you sure you want to remove this goal?"
-            font_size: 24
+            text: "Are you sure you want to remove this\ngoal?"
+            font_size: 40
         
         Label:
             text: "All goal data will be lost."
-            font_size: 24
+            font_size: 40
         
         Label:
             text: "Lost data cannot be retrieved."
-            font_size: 24
+            font_size: 40
         
         Button:
             text: "Yes, remove goal"
@@ -164,7 +164,9 @@ WindowManager:
                 text: "Target number of hours"
             
             GridLayout:
-                cols: 5
+                cols: 7
+                pos_hint: {"center_x": 0.5}
+                size_hint_x: 1.5
 
                 Button:
                     text: "-10"
@@ -173,10 +175,18 @@ WindowManager:
                 Button:
                     text: "-1"
                     on_release: root.update_hours(-1)
+                
+                Button:
+                    text: "-0.5"
+                    on_release: root.update_hours(-0.5)
 
                 Label:
                     id: hours
-                    text: "0"
+                    font_size: 32
+                
+                Button:
+                    text: "+0.5"
+                    on_release: root.update_hours(0.5)
                 
                 Button:
                     text: "+1"

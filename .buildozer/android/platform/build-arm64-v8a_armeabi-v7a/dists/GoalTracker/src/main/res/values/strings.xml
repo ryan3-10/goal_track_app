@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Goal Tracker</string>
-    <string name="private_version">e4dfba8d4f671047bd18e1da1a982b0e239d1801</string>
+    <string name="private_version">c1c12c3e37769f8cab82964f324c97a6a02a9454</string>
     <string name="presplash_color">#000000</string>
     <string name="urlScheme">kivy</string>
 </resources>

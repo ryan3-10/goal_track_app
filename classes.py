@@ -219,7 +219,7 @@ class User:
                 for i, line in enumerate(file):
                     if i == 0:
                         title, length, target, passed, failed = line.split(",")
-                        goal = Goal(title, int(length), int(target), int(passed), int(failed))
+                        goal = Goal(title, int(length), float(target), int(passed), int(failed))
                         self.add_goal(goal)
                     
                     else:
