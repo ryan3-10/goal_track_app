@@ -12,7 +12,7 @@ WindowManager:
     font_size: sp(21)
     multiline: False
     size_hint_y: None
-    height: 60
+    height: 90
 
 <Label>
     font_size: sp(26)
@@ -134,7 +134,7 @@ WindowManager:
                 id: toggles
                 cols: 3
                 size_hint_x: 1
-                size_hint_y: 1.5
+                size_hint_y: 1.75
             
                 ToggleButton: 
                     id: daily
@@ -182,7 +182,7 @@ WindowManager:
 
                 Label:
                     id: hours
-                    font_size: 32
+                    font_size: 48
                 
                 Button:
                     text: "+0.5"
@@ -225,7 +225,7 @@ WindowManager:
     BoxLayout:
         orientation: "vertical"
         size_hint_y: 0.5
-        pos_hint: {"center_y": 0.5}
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
         Label:
             text: "Success!"
@@ -234,6 +234,7 @@ WindowManager:
         
         Label:
             text: "Goal has been added.\nPlease Click below to continue."
+            font_size: 50
         
         Button:
             text: "Return to home page"
@@ -250,7 +251,7 @@ WindowManager:
         
         Label:
             id: goal_name
-            font_size: sp(50)
+            font_size: sp(30)
         
         Label:
             id: cycle_range

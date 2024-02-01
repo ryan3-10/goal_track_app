@@ -56,7 +56,7 @@ class DetailsWindow(Screen):
         App.get_running_app().root.current = "session"
 
     def on_pre_enter(self):
-        SCROLL_HEIGHT = 650 if len(user.get_current_goal().get_cycles()) < 5 else 575
+        SCROLL_HEIGHT = 850 if len(user.get_current_goal().get_cycles()) < 5 else 725   #Don't ask
         user.get_current_goal().check_current_cycle()
         self.clear_widgets()
 
@@ -68,7 +68,7 @@ class DetailsWindow(Screen):
         
         scroll_view = ScrollView(
                                 size_hint=(None, None), 
-                                size=(550, SCROLL_HEIGHT),
+                                size=(625, SCROLL_HEIGHT),
                                 pos_hint={"center_x": 0.5}
                                 )
         
@@ -85,7 +85,7 @@ class DetailsWindow(Screen):
         main.add_widget(Label(text="Note that cycle end dates are exclusive", font_size=32))
 
         for cycle in user.get_current_goal().get_cycles()[-1::-1]:
-            text = (f"""       {cycle.get_dates()}
+            text = (f"""      {cycle.get_dates()}
    Time Spent this cycle: {cycle.format_time_training()}""")
             
             if cycle.get_status() == "Failed":
@@ -105,7 +105,7 @@ class DetailsWindow(Screen):
                           height = 100,
                           halign="left", 
                           valign="middle",
-                          font_size=25
+                          font_size=28
                         )
             
             label.bind(size=label.setter("text_size"))
@@ -117,7 +117,7 @@ class DetailsWindow(Screen):
         main.add_widget(Button(
                             text="Start a session", 
                             size_hint_x = None,
-                            width=550,
+                            width=700,
                             background_color=GoalTracker.green,
                             on_release=self.switch_to_session
                             ))
@@ -125,7 +125,7 @@ class DetailsWindow(Screen):
         main.add_widget(Button(
                             text="Back", 
                             size_hint_x = None,
-                            width=550,
+                            width=700,
                             on_release=self.switch_to_home,
                             background_color = GoalTracker.red
                             ))
@@ -133,7 +133,7 @@ class DetailsWindow(Screen):
         main.add_widget(Button(
                             text="Remove Goal", 
                             size_hint_x = None,
-                            width=550,
+                            width=700,
                             on_release=self.switch_to_confirm_deletion,
                             background_color = GoalTracker.red
                             ))
